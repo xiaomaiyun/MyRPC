@@ -3,6 +3,7 @@ package com.chenjian.rpc
 import akka.actor.{Actor, ActorSelection, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
+//worker
 class Worker(masterHost: String,masterPost :Int) extends Actor{
 
   var master : ActorSelection=_

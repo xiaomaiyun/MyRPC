@@ -3,6 +3,7 @@ package com.chenjian.rpc
 import akka.actor.{Actor, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
+//master
 class Master extends Actor{
 
   println("constructor invoked")
