@@ -31,6 +31,8 @@ class Worker(masterHost: String, masterPost: Int, val memory: Int, val cores: In
     case RegisteredWorker(masterUrl) => {
       println("master的Url:" + masterUrl)
 
+      //导入隐私转换
+      import context.dispatcher
       //启动定时器发送心跳
       context.system.scheduler.schedule(0 millis, HEART_INTERVAL millis, self, SendHeartbeat)
     }
@@ -45,17 +47,19 @@ class Worker(masterHost: String, masterPost: Int, val memory: Int, val cores: In
 object Worker {
   def main(args: Array[String]): Unit = {
 
-    val host = args(0)
-    val port = args(1).toInt
-    val masterHost = args(2)
-    val masterPost = args(3).toInt
-    val memory = args(4).toInt
-    val cores = args(5).toInt
+    //    val host = args(0)
+    //    val port = args(1).toInt
+    //    val masterHost = args(2)
+    //    val masterPost = args(3).toInt
+    //    val memory = args(4).toInt
+    //    val cores = args(5).toInt
 
-    //    val host="192.168.199.190"
-    //    val port="7777".toInt
-    //    val masterHost="192.168.199.190"
-    //    val masterPost="9999".toInt
+    val host = "192.168.199.190"
+    val port = "7777".toInt
+    val masterHost = "192.168.199.190"
+    val masterPost = "9999".toInt
+    val memory = "789".toInt
+    val cores = "999".toInt
 
     //准备配置
     val configStr =

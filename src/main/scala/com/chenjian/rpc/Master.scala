@@ -22,6 +22,9 @@ class Master(val host: String, val port: Int) extends Actor {
   override def preStart(): Unit = {
     println("执行preStart")
 
+    //导入隐私转换
+    //使用timer太low了, 可以使用akka的, 使用定时器, 要导入这个包
+    import context.dispatcher
     context.system.scheduler.schedule(0 millis, CHECK_INTERVAL millis, self, CheckTimeOutWorker)
   }
 
@@ -38,7 +41,7 @@ class Master(val host: String, val port: Int) extends Actor {
         idToWorker(id) = workerInfo
         workers += workerInfo
 
-        sender ! RegisteredWorker("akka.tcp://MasterSystem@$host:$port/user/Master")
+        sender ! RegisteredWorker(s"akka.tcp://MasterSystem@$host:$port/user/Master")
       }
     }
 
@@ -72,6 +75,7 @@ class Master(val host: String, val port: Int) extends Actor {
         workers -= w
         idToWorker -= w.id
       }
+      println(workers.size)
     }
   }
 }
@@ -79,11 +83,11 @@ class Master(val host: String, val port: Int) extends Actor {
 object Master {
   def main(args: Array[String]): Unit = {
 
-    val host = args(0)
-    val port = args(1).toInt
+    //    val host = args(0)
+    //    val port = args(1).toInt
 
-    //    val host="192.168.199.190"
-    //    val port="9999".toInt
+    val host = "192.168.199.190"
+    val port = "9999".toInt
 
     //准备配置
     val configStr =
