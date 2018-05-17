@@ -6,7 +6,7 @@ import com.typesafe.config.ConfigFactory
 import scala.collection.mutable
 import scala.concurrent.duration._
 
-//master
+//master xiaomai
 class Master(val host: String, val port: Int) extends Actor {
 
   //WorkerInfo
