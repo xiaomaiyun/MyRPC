@@ -27,5 +27,6 @@
     <orderEntry type="library" name="Maven: io.aeron:aeron-driver:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: io.aeron:aeron-client:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.agrona:agrona:0.9.12" level="project" />
+    <orderEntry type="library" name="scala-sdk-2.12.3" level="application" />
   </component>
 </module>
