@@ -83,11 +83,11 @@ class Master(val host: String, val port: Int) extends Actor {
 object Master {
   def main(args: Array[String]): Unit = {
 
-    //    val host = args(0)
-    //    val port = args(1).toInt
+    val host = args(0)
+    val port = args(1).toInt
 
-    val host = "192.168.199.190"
-    val port = "9999".toInt
+    //    val host = "192.168.199.190"
+    //    val port = "9999".toInt
 
     //准备配置
     val configStr =
